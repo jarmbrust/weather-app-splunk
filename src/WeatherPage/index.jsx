@@ -24,12 +24,8 @@ export const WeatherPage = () => {
   useEffect(() => {
     fetch(urlOneCall)
       .then(result => result.json())
-      .then(
-        data => setResultsOneCall(data),
-        error => {
-          console.log(error)
-        }
-      )
+      .then(data => setResultsOneCall(data))
+      .catch(error => console.log(error))
   }, [urlOneCall]);
 
   useEffect(() => {
