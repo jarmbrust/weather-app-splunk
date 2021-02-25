@@ -5,7 +5,7 @@ import { kelvinToFahrenheit } from './../utilityFunctions';
 export const CurrentForcast = ({currentIcon, dayTime, currentWeather, currentTemp}) => {
   return(
     <>
-      <div className='wrapper'>
+      <div className='location-wrapper'>
         <h2 className="city-heading">Longmont, CO</h2>
         <div>{dayTime}</div>
         <div>{currentWeather}</div>

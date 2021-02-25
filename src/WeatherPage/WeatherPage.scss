@@ -1,28 +1,31 @@
-.city-heading {
-  font-size: 25px;
-  font-weight: 500;
-}
-.current-temp {
-  font-size: 38px;
-  font-weight: 600;
-
-  .degrees {
-    vertical-align: text-top;
-    font-size: 16px;
+.location-wrapper {
+  text-align: center;
+  
+  .city-heading {
+    font-size: 25px;
     font-weight: 500;
+    
+  }
+  .current-temp {
+    font-size: 38px;
+    font-weight: 600;
+
+    .degrees {
+      vertical-align: text-top;
+      font-size: 16px;
+      font-weight: 500;
+    }
   }
 }
 
 .timeline {
-  // display: grid;
-  // grid-template-columns: repeat(3, 20px [col-start]);
-  // column-count: 2;
+  width: 100%;
   .times {
-    width: 100px;
-    text-align: left;
+    // width:100px;
+    text-align: right;
   }
   .temps {
-    text-align: right;
+    text-align: left;
   }
 }
 

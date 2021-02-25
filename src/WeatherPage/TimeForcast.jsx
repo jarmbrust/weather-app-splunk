@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './WeatherPage.scss';
 import { formatDateTime, kelvinToFahrenheit } from './../utilityFunctions';
+import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const TimeForcast = ({hourlyTemps}) => {
 
@@ -20,42 +22,26 @@ export const TimeForcast = ({hourlyTemps}) => {
 
 
   const cssTempBar = temp => {
-    const fTemp = kelvinToFahrenheit(temp) *3;
-
-    
-
+    const fTemp = kelvinToFahrenheit(temp) * 3;
     const width = {
       backgroundImage: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,50,121,1) 50%, rgba(255,27,0,1) 100%)',
       width: `${fTemp}px`,
       height: '12px',
       position: 'absolute',
-      margin: '5px 2px 2px 2px',
+      margin: '5px 2px 2px 5px',
+      textAlign: 'left',
     }
-
     return width;
   }
-//style={{with: '100%', backgroundColor: '#ddd'}}>
 
   return (
-    <>
-    <div className="timeline">
-      {timesArray.map((times, i) => {
-          return <div key={i} >
-            <span className="times">{`${formatDateTime(times.dt)}: `}<span classNames="temps" style={cssTempBar(times.temp)} />
-            </span>
-          </div>;
-        })}
-    </div>
-
-    
-      {/* <div >
+    <Container className="timeline">
         {timesArray.map((times, i) => {
-          return <div key={i} ><span>{`${formatDateTime(times.dt)}:`}<span style={cssTempBar(times.temp)} /></span></div>;
-        })}
-      </div> */}
-
-
-
-    </>
+            return <Row key={i} >
+              <Col className="times">{`${formatDateTime(times.dt)}: `}</Col><Col><span classNames="temps" style={cssTempBar(times.temp)}></span></Col>
+              
+            </Row>
+          })}
+    </Container>
   );
 };
