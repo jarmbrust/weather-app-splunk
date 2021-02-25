@@ -1,0 +1,38 @@
+.city-heading {
+  font-size: 25px;
+  font-weight: 500;
+}
+.current-temp {
+  font-size: 38px;
+  font-weight: 600;
+
+  .degrees {
+    vertical-align: text-top;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.timeline {
+  // display: grid;
+  // grid-template-columns: repeat(3, 20px [col-start]);
+  // column-count: 2;
+  .times {
+    width: 100px;
+    text-align: left;
+  }
+  .temps {
+    text-align: right;
+  }
+}
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//   grid-gap: 1rem;
+// }
+
+// .container {
+//   grid-template-columns: repeat(3, 20px [col-start]);
+//   background-color: green;
+// }
