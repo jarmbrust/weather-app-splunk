@@ -1,14 +1,15 @@
 import React from 'react';
 import './WeatherPage.scss';
 import { kelvinToFahrenheit } from './../utilityFunctions';
+import PropTypes from 'prop-types';
 
 export const CurrentForcast = ({currentIcon, dayTime, currentWeather, currentTemp}) => {
   return(
     <>
-      <div className='location-wrapper'>
+      <div className="location-wrapper">
         <h2 className="city-heading">Longmont, CO</h2>
-        <div>{dayTime}</div>
-        <div>{currentWeather}</div>
+        <div className="day-time">{dayTime}</div>
+        <div className="current-weather">{currentWeather}</div>
         <img
           src={currentIcon}
           alt="current-weather-icon"
@@ -18,4 +19,11 @@ export const CurrentForcast = ({currentIcon, dayTime, currentWeather, currentTem
       </div>
     </>
   );
+};
+
+CurrentForcast.propTypes = {
+  currentIcon: PropTypes.any.isRequired,
+  dayTime: PropTypes.string.isRequired,
+  currentWeather: PropTypes.string.isRequired,
+  currentTemp: PropTypes.number.isRequired,
 };

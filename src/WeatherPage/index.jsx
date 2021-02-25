@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { CurrentForcast } from './CurrentForcast';
 import { formatDateTime } from './../utilityFunctions';
 import { TimeForcast } from './TimeForcast';
+import { DayForcast } from './DayForcast';
 
 export const WeatherPage = () => {
 
   const [resultsOneCall, setResultsOneCall] = useState([]);
   const [currentIcon, setCurrentIcon] = useState('')
   const [currentWeather, setCurrentWeather] = useState('')
-  const [currentTemp, setCurrentTemp] = useState('');
+  const [currentTemp, setCurrentTemp] = useState(0);
   const [hourlyTemps, setHourlyTemps] = useState([]);
   const [dailyTemps, setDailyTemps] = useState([]);
   const [formattedTime, setFormattedTime] = useState('');
@@ -31,8 +32,6 @@ export const WeatherPage = () => {
       )
   }, [urlOneCall]);
 
-  console.log('items', resultsOneCall)
-
   useEffect(() => {
     if (resultsOneCall) {
       setDailyTemps(resultsOneCall.daily);
@@ -50,15 +49,23 @@ export const WeatherPage = () => {
 
   return (
     <>
-      <CurrentForcast 
-        currentIcon={currentIcon}
-        dayTime={formattedTime}
-        currentWeather={currentWeather}
-        currentTemp={currentTemp}
-      />
-      <TimeForcast 
-        hourlyTemps={hourlyTemps}
-      />
+      {resultsOneCall.length === 0 
+        ? 'Loading...'
+        : <>
+            <CurrentForcast 
+              currentIcon={currentIcon}
+              dayTime={formattedTime}
+              currentWeather={currentWeather}
+              currentTemp={currentTemp}
+            />
+            <TimeForcast 
+              hourlyTemps={hourlyTemps}
+            />
+            <DayForcast
+              dailyTemps={dailyTemps}
+            />
+          </>
+      }
     </>
   );
 };

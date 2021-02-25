@@ -6,6 +6,9 @@
     font-weight: 500;
     
   }
+  .current-weather {
+    text-transform: capitalize;
+  }
   .current-temp {
     font-size: 38px;
     font-weight: 600;
@@ -16,26 +19,12 @@
       font-weight: 500;
     }
   }
-}
+};
 
 .timeline {
   width: 100%;
+  
   .times {
-    // width:100px;
     text-align: right;
   }
-  .temps {
-    text-align: left;
-  }
-}
-
-// .grid {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-//   grid-gap: 1rem;
-// }
-
-// .container {
-//   grid-template-columns: repeat(3, 20px [col-start]);
-//   background-color: green;
-// }
+};
